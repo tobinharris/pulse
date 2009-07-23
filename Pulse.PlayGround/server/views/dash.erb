@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<h1>Dashboard</h1>
+		<ul>
+			<% @items.each do |item| %>
+			<li><%=item.recorded_at %> <%=item.type %> <%=item.value%></li>
+			<% end %>
+		</ul>
+		
+		<img src="<%=@chart%>"/>
+	</body>
+</html>
