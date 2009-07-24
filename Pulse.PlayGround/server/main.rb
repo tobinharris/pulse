@@ -10,8 +10,7 @@ class Observation < CouchRest::ExtendedDocument
 end
 
 
-get '/setup' do
-  
+get '/setup' do  
   db = CouchRest.database!("http://localhost:5984/pulse_mdl")     
   db.save_doc Observation.new
   db.save_doc Observation.new
