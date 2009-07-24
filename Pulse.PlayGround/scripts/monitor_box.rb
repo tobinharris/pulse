@@ -16,18 +16,18 @@ def disk_free_space( path )
 end
 
 # Define node and measurements
-node = {:key=>'mdl.web', :name=>'MDL Web Site', :description=>'MDL Portal Web Server' }
-cpu_usage = {:key=>'cpu.usage.perminute', :name=>'CPU Usage', :description=>'Average CPU Usage Over 1 Minute'}
-disk_usage = {:key=>'disk.usage', :name=>'Disk Usage', :description=>'Current Disk Usage'}
+node = {:Identifier=>'mdl.web', :Name=>'MDL Web Site', :Descriptor=>'MDL Portal Web Server' }
+cpu_usage = {:Identifier=>'cpu.usage.perminute', :name=>'CPU Usage', :Description=>'Average CPU Usage Over 1 Minute', :Unit=>'%'}
+disk_usage = {:Identifier=>'disk.usage', :Name=>'Disk Usage', :Descriptor=>'Current Disk Usage', :Unit=>'Mb'}
 
 # Set up Pulse
-pulse = Pulse.new('C2AH567BG90C', CouchRest.database!("http://127.0.0.1:5984/pulse_mdl"))
+pulse = Pulse.new('C2AH567BG90C', MockDb.new)
 pulse.observes node
 pulse.measures cpu_usage
 pulse.measures disk_usage
 
 while(true) do  
-  pulse.record CPU.load_avg[0], cpu_usage[:key], node  
+  pulse.record CPU.load_avg[0], cpu_usage[:Identifier], node  
   #pulse.record_measurement disk_free_space('/dev/disk0s2') / 1024, disk_usage[:key]
   sleep 10
 end

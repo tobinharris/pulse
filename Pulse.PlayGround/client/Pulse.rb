@@ -17,7 +17,7 @@ class Pulse
   end
   
   def measures(measurement_type)
-    measurement_type[:api_key] = @api_key
+    measurement_type[:ApiKey] = @api_key
     measurement_type['couchrest-type'] = 'ObservationType'
     post measurement_type
   end
@@ -25,19 +25,19 @@ class Pulse
   def record(val, type, node)
     post(
     {
-        :value => val,  
-        :type => type,   
+        :Value => val,  
+        :TypeIdentifier => type,   
         'couchrest-type' => 'Observation',
-        :api_key => @api_key,
-        :target_node => node[:key],        
-        :recorded_at => Time.new.utc           
+        :ApiKey  => @api_key,
+        :TargetNode  => node[:key],        
+        :RecordedAt => Time.new.utc           
       })
   end  
   
   private
     
   def post(doc)
-    doc[:originating_node] = @origin
+    doc[:OriginatingNode] = @origin
     @db.save_doc doc
   end  
   

@@ -17,7 +17,7 @@ get '/setup' do
 end
 
 get '/' do  
-  @items =  Observation.first
+  @items =  Observation.all
   
   #@items.sort{| a,b | a.recorded_at <=> b.recorded_at }
   #@chart = "http://chart.apis.google.com/chart?cht=ls&chs=300x100&chm=B,e6f2fa,0,0,0|R,000000,0,0.998,1.0&chco=0f7fcf&chxt=r&chd=s:#{@items.map{|i|i.value * 100}.join(',')}"
