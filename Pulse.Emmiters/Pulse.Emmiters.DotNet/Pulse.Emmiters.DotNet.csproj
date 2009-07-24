@@ -33,6 +33,7 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <RootNamespace>Pulse</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -77,102 +78,41 @@
     <Reference Include="System.Web.Mvc">
       <Name>System.Web.Mvc</Name>
     </Reference>
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Emmiters\DotNet\Application\RegisteredAssemblies.cs" />
+    <Compile Include="Emmiters\DotNet\Core\Measurments\Database\OpenConnectionsMeasurment.cs" />
+    <Compile Include="Emmiters\DotNet\Core\Measurments\MVC\ControllerTimeMeasurement.cs" />
+    <Compile Include="Emmiters\DotNet\Core\Measurments\Windows\AvaliableRamMeasurment.cs" />
+    <Compile Include="Emmiters\DotNet\Core\Measurments\Windows\CPUMeasurement.cs" />
+    <Compile Include="Emmiters\DotNet\Core\ObservationTypes\AvaliableRAMType.cs" />
+    <Compile Include="Emmiters\DotNet\Core\ObservationTypes\ControllerTimeType.cs" />
+    <Compile Include="Emmiters\DotNet\Core\ObservationTypes\OpenConnectionsType.cs" />
+    <Compile Include="Emmiters\DotNet\Core\ObservationTypes\CpuMeasurementType.cs" />
+    <Compile Include="Emmiters\DotNet\Core\Observers\CPUObserver.cs" />
+    <Compile Include="Emmiters\DotNet\Core\Observers\NH\NHObserver.cs" />
+    <Compile Include="Emmiters\DotNet\Core\Observers\RamObserver.cs" />
+    <Compile Include="Emmiters\DotNet\Core\Observers\SQLServer\OpenConnectionsObserver.cs" />
+    <Compile Include="Emmiters\DotNet\DefaultObservation.cs" />
+    <Compile Include="Emmiters\DotNet\Domain\Event.cs" />
+    <Compile Include="Emmiters\DotNet\Domain\Exceptions\InvalidMeasurementException.cs" />
+    <Compile Include="Emmiters\DotNet\Domain\Feature.cs" />
+    <Compile Include="Emmiters\DotNet\Domain\Measurement.cs" />
+    <Compile Include="Emmiters\DotNet\Domain\MVC\PulseAttribute.cs" />
+    <Compile Include="Emmiters\DotNet\Domain\Node.cs" />
+    <Compile Include="Emmiters\DotNet\Domain\Observation!1.cs" />
+    <Compile Include="Emmiters\DotNet\Domain\Observation.cs" />
+    <Compile Include="Emmiters\DotNet\Domain\Observations.cs" />
+    <Compile Include="Emmiters\DotNet\Domain\Observer.cs" />
+    <Compile Include="Emmiters\DotNet\Payload.cs" />
+    <Compile Include="Emmiters\DotNet\PulseManager.cs" />
+    <Compile Include="Emmiters\DotNet\Register.cs" />
+    <Compile Include="Emmiters\DotNet\RegKeys.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\Global.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Application\RegisteredAssemblies.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Core\Measurments\AbstractMeasurments\AbsoluteMeasurement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Core\Measurments\AbstractMeasurments\ActionTimeMeasurement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Core\Measurments\AbstractMeasurments\IncrementalMeasurement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Core\Measurments\AbstractMeasurments\PercentageMeasurement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Core\Measurments\AbstractMeasurments\TimeMeasurement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Core\Measurments\Database\OpenConnectionsMeasurment.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Core\Measurments\MVC\ControllerTimeMeasurement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Core\Measurments\Windows\AvaliableRamMeasurment.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Core\Measurments\Windows\CPUMeasurement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Core\Measurments\Windows\TimeToDoSomethingMeasurement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Core\Observers\CPUObserver.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Core\Observers\NH\NHObserver.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Core\Observers\RamObserver.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Core\Observers\SQLServer\OpenConnectionsObserver.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\DefaultObservation.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Domain\Event.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Domain\Exceptions\InvalidMeasurementException.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Domain\Feature.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Domain\Measurement.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Domain\MVC\PulseAttribute.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Domain\Node.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Domain\Observation!1.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Domain\Observation.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Domain\Observations.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Domain\Observer.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Payload.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\PulseManager.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\Register.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Pulse\Emmiters\DotNet\RegKeys.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
