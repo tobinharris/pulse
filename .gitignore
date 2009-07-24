@@ -10,3 +10,5 @@ _ReSharper.*
 *.cache
 ~$*
 Pulse.PlayGround/test_data/
+*.pidb
+*.userprefs
