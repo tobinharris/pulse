@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Pulse.Emmiters.DotNet;
 
 namespace Pulse.Emmiters.SampleWeb
 {
@@ -25,6 +26,8 @@ namespace Pulse.Emmiters.SampleWeb
 
         protected void Application_Start()
         {
+            PulseManager.RegisterDefaults(DefaultObservation.WindowsCore);
+               
             RegisterRoutes(RouteTable.Routes);
         }
     }

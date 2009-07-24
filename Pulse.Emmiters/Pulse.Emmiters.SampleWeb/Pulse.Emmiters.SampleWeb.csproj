@@ -92,7 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Pulse.Emmiters.DotNet\Pulse.Emmiters.DotNet.csproj">
-      <Project>{71CE1E37-DED0-4733-8A31-1C166F5FB151}</Project>
+      <Project>{3DD3F982-7F67-4F1D-AED7-A628260A204A}</Project>
       <Name>Pulse.Emmiters.DotNet</Name>
     </ProjectReference>
   </ItemGroup>
