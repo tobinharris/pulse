@@ -5,29 +5,31 @@ require '../client/mockdb'
 
 class Pulse  
   
-  def initialize(api_key, node, db=MockDb.new)   
+  def initialize(api_key, db=MockDb.new)   
     @api_key = api_key
-    @node = node
-    @origin = `hostname`        
-    @node['couchrest-type'] = 'node'    
+    @origin = `hostname`            
     @db = db
+  end
+  
+  def observes(node)
+    node['couchrest-type'] = 'Node'    
     post node
   end
   
   def measures(measurement_type)
     measurement_type[:api_key] = @api_key
-    measurement_type['couchrest-type'] = 'observation_type'
+    measurement_type['couchrest-type'] = 'ObservationType'
     post measurement_type
   end
   
-  def record_measurement(val, type)
+  def record(val, type, node)
     post(
     {
         :value => val,  
         :type => type,   
-        'couchrest-type' => 'observation.measurement',
+        'couchrest-type' => 'Observation',
         :api_key => @api_key,
-        :app => @node[:key],
+        :target_node => node[:key],        
         :recorded_at => Time.new.utc           
       })
   end  
@@ -35,7 +37,7 @@ class Pulse
   private
     
   def post(doc)
-    doc[:origin] = @origin
+    doc[:originating_node] = @origin
     @db.save_doc doc
   end  
   
