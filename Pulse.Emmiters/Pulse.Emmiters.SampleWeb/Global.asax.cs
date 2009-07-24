@@ -26,8 +26,8 @@ namespace Pulse.Emmiters.SampleWeb
 
         protected void Application_Start()
         {
-            PulseManager.RegisterDefaults(DefaultObservation.WindowsCore);
-               
+            PulseManager.RegisterDefaults(DefaultObservation.WindowsCore, DefaultObservation.MVC);
+                PulseManager.Init("keyyy21312312312");
             RegisterRoutes(RouteTable.Routes);
         }
     }
