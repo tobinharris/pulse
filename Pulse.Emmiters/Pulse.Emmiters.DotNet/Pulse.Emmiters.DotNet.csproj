@@ -101,7 +101,6 @@
     <Compile Include="Emmiters\DotNet\Domain\Measurement.cs" />
     <Compile Include="Emmiters\DotNet\Domain\MVC\PulseAttribute.cs" />
     <Compile Include="Emmiters\DotNet\Domain\Node.cs" />
-    <Compile Include="Emmiters\DotNet\Domain\Observation!1.cs" />
     <Compile Include="Emmiters\DotNet\Domain\Observation.cs" />
     <Compile Include="Emmiters\DotNet\Domain\Observations.cs" />
     <Compile Include="Emmiters\DotNet\Domain\Observer.cs" />
