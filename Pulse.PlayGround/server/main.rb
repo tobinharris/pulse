@@ -3,10 +3,12 @@ require 'sinatra'
 require 'couchrest'
 require 'json/pure'
 
-DB = CouchRest.database("http://localhost:5984/pulse_mdl")     
+DB = CouchRest.database!("http://localhost:5984/pulse_mdl")     
 
 class Observation < CouchRest::ExtendedDocument
   Observation.use_database DB
+  property :recorded_at
+  property :value
 end
 
 
