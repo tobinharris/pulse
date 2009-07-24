@@ -49,10 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EmitterFixture.cs" />
-    <Compile Include="CoreMeasurment\Windows\AvaliableRamMetricFixture.cs" />
-    <Compile Include="CoreMeasurment\Windows\CPUConsumptionMetricFixture.cs" />
-    <Compile Include="PayloadFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

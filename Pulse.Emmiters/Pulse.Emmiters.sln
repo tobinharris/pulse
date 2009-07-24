@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pulse.Emmiters.DotNet", "Pulse.Emmiters.DotNet\Pulse.Emmiters.DotNet.csproj", "{71CE1E37-DED0-4733-8A31-1C166F5FB151}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pulse.Emmiters.DotNet", "Pulse.Emmiters.DotNet\Pulse.Emmiters.DotNet.csproj", "{3DD3F982-7F67-4F1D-AED7-A628260A204A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pulse.Emmiters.Test", "Pulse.Emmiters.Test\Pulse.Emmiters.Test.csproj", "{E1D73290-60AC-40D8-8D61-1C49E587986C}"
 EndProject
@@ -18,10 +18,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{71CE1E37-DED0-4733-8A31-1C166F5FB151}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{71CE1E37-DED0-4733-8A31-1C166F5FB151}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{71CE1E37-DED0-4733-8A31-1C166F5FB151}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{71CE1E37-DED0-4733-8A31-1C166F5FB151}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DD3F982-7F67-4F1D-AED7-A628260A204A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DD3F982-7F67-4F1D-AED7-A628260A204A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DD3F982-7F67-4F1D-AED7-A628260A204A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DD3F982-7F67-4F1D-AED7-A628260A204A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E1D73290-60AC-40D8-8D61-1C49E587986C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E1D73290-60AC-40D8-8D61-1C49E587986C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1D73290-60AC-40D8-8D61-1C49E587986C}.Release|Any CPU.ActiveCfg = Release|Any CPU

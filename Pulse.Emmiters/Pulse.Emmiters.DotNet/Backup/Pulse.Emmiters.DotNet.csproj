@@ -1,0 +1,54 @@
+<VisualStudioProject>
+  <CSHARP ProjectType="local" ProjectVersion="7.10.3077" SchemaVersion="2.0" ProjectGuid="29faf662-c5c3-4c59-a412-27e1f9c6580d">
+    <Build>
+      <Settings AssemblyName="Pulse.Emmiters.DotNet" DefaultClientScript="JScript" DefaultHTMLPageLayout="Grid" DefaultTargetSchema="IE50" DelaySign="false" OutputType="Library">
+        <Config Name="Debug" AllowUnsafeBlocks="true" DefineConstants="DEBUG;TRACE" DebugSymbols="true" IncrementalBuild="false" NoStdLib="false" Optimize="false" OutputPath="bin\Debug\" WarningLevel="4" />
+        <Config Name="Release" AllowUnsafeBlocks="true" DefineConstants="TRACE" DebugSymbols="false" IncrementalBuild="false" NoStdLib="false" Optimize="true" OutputPath="bin\Release\" WarningLevel="4" />
+      </Settings>
+      <References>
+        <Reference Name="System.Web.Mvc" AssemblyName="System.Web.Mvc" />
+        <Reference Name="System.Core" AssemblyName="System.Core" />
+        <Reference Name="System" AssemblyName="System" />
+        <Reference Name="Newtonsoft.Json" AssemblyName="Newtonsoft.Json" />
+        <Reference Name="System.Configuration" AssemblyName="System.Configuration" />
+        <Reference Name="System.Data" AssemblyName="System.Data" />
+      </References>
+    </Build>
+    <Files>
+      <Include>
+        <File RelPath="AssemblyInfo.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Global.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Register.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\RegKeys.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\DefaultObservation.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Domain\Node.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Domain\Observation.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Domain\Observation!1.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Domain\Measurement.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Core\Measurments\AbstractMeasurments\IncrementalMeasurement.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Domain\Exceptions\InvalidMeasurementException.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Core\Measurments\AbstractMeasurments\TimeMeasurement.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Core\Measurments\AbstractMeasurments\ActionTimeMeasurement.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Domain\Observations.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Core\Measurments\AbstractMeasurments\AbsoluteMeasurement.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Core\Measurments\Windows\AvaliableRamMeasurment.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Domain\Feature.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\PulseManager.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Core\Measurments\AbstractMeasurments\PercentageMeasurement.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Domain\Observer.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Core\Observers\CPUObserver.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Core\Measurments\Windows\TimeToDoSomethingMeasurement.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Payload.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Domain\MVC\PulseAttribute.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Core\Measurments\Windows\CPUMeasurement.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Domain\Event.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Core\Observers\RamObserver.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Application\RegisteredAssemblies.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Core\Observers\NH\NHObserver.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Core\Measurments\Database\OpenConnectionsMeasurment.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Core\Observers\SQLServer\OpenConnectionsObserver.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Pulse\Emmiters\DotNet\Core\Measurments\MVC\ControllerTimeMeasurement.cs" SubType="Code" BuildAction="Compile" />
+      </Include>
+    </Files>
+  </CSHARP>
+</VisualStudioProject>
