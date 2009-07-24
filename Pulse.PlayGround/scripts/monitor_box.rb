@@ -21,7 +21,7 @@ cpu_usage = {:Identifier=>'cpu.usage.perminute', :name=>'CPU Usage', :Descriptio
 disk_usage = {:Identifier=>'disk.usage', :Name=>'Disk Usage', :Descriptor=>'Current Disk Usage', :Unit=>'Mb'}
 
 # Set up Pulse
-pulse = Pulse.new('C2AH567BG90C', MockDb.new)
+pulse = Pulse.new('C2AH567BG90C', CouchRest.database!("http://localhost:5984/pulse_mdl"))
 pulse.observes node
 pulse.measures cpu_usage
 pulse.measures disk_usage

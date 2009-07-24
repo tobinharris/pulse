@@ -7,8 +7,8 @@ DB = CouchRest.database!("http://localhost:5984/pulse_mdl")
 
 class Observation < CouchRest::ExtendedDocument
   Observation.use_database DB
-  property :recorded_at
-  property :value
+  property :RecordedAt
+  property :Value
 end
 
 
@@ -22,6 +22,6 @@ get '/' do
   @items =  Observation.all
   
   #@items.sort{| a,b | a.recorded_at <=> b.recorded_at }
-  #@chart = "http://chart.apis.google.com/chart?cht=ls&chs=300x100&chm=B,e6f2fa,0,0,0|R,000000,0,0.998,1.0&chco=0f7fcf&chxt=r&chd=s:#{@items.map{|i|i.value * 100}.join(',')}"
+  @chart = "http://chart.apis.google.com/chart?cht=ls&chs=300x100&chm=B,e6f2fa,0,0,0|R,000000,0,0.998,1.0&chco=0f7fcf&chxt=r&chd=s:#{@items.map{|i|i.Value * 100}.join(',')}"
   erb :dash
 end
