@@ -1,0 +1,13 @@
+<h1>Dashboard</h1>
+<% @charts.each do |chart| %>
+<div style="float:left; padding: 1em;">
+<img src="<%=chart.google_url%>"/>
+<br/><%= chart.name %>
+</div>
+<% end %>
+<hr style="clear:both"/>
+<ul>
+	<% @items.each do |item| %>
+	<li><%=item.RecordedAt %> <%= item.TypeIdentifier %> <%=item.Value%></li>
+	<% end %>
+</ul>

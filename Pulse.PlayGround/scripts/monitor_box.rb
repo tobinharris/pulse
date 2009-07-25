@@ -3,7 +3,7 @@ require '../Client/Pulse'
 require 'sys/cpu'
 require 'sys/filesystem'
 include Sys
-
+require 'mysql'
 
 def disk_used_space( path )
   `df -P #{path} |grep ^/ | awk '{print $3;}'`.
@@ -15,19 +15,29 @@ def disk_free_space( path )
    to_i * 1024
 end
 
-# Define node and measurements
-node = {:Identifier=>'mdl.web', :Name=>'MDL Web Site', :Descriptor=>'MDL Portal Web Server' }
-cpu_usage = {:Identifier=>'cpu.usage.perminute', :name=>'CPU Usage', :Description=>'Average CPU Usage Over 1 Minute', :Unit=>'%'}
-disk_usage = {:Identifier=>'disk.usage', :Name=>'Disk Usage', :Descriptor=>'Current Disk Usage', :Unit=>'Mb'}
+# Define nodes
+node = {:Identifier=>`hostname`, :Name=>`hostname`, :Descriptor=>'' }
+mysql = {:Identifier=>'mysql', :Name=>'MySQL Server', :Descriptor=>'', }
 
 # Set up Pulse
-pulse = Pulse.new('C2AH567BG90C', CouchRest.database!("http://localhost:5984/pulse_mdl"))
+db = MockDb.new
+db = CouchRest.database!("http://localhost:5984/pulse_mdl")
+
+pulse = Pulse.new('C2AH567BG90C', db)
 pulse.observes node
-pulse.measures cpu_usage
-pulse.measures disk_usage
+pulse.observes mysql
 
 while(true) do  
-  pulse.record CPU.load_avg[0], cpu_usage[:Identifier], node  
-  #pulse.record_measurement disk_free_space('/dev/disk0s2') / 1024, disk_usage[:key]
+  pulse.record CPU.load_avg[0] * 100, 'cpu.usage', node  
+  pulse.record Filesystem.stat("/").blocks_free, 'disk.freeblocks', node
+  
+  #record MySQL stuff
+  db = Mysql.new("127.0.0.1","root","xxx") 
+  st = db.query("show global status like 'Threads_%';")     
+  st.each do |row| 
+    pulse.record row[1].to_f, "mysql.#{row[0].downcase().gsub(/_/,'.')}" , mysql
+  end
+  
+  db.close()
   sleep 10
 end
