@@ -2,11 +2,15 @@
 
 namespace Pulse.Emmiters.DotNet.Domain
 {
-    public abstract class Measurement : Observation<double>
+    public class Measurement : Observation<double>
     {
-        public override bool IsValid()
+        public Measurement(string typeKey)
         {
-            return true;
+            TypeKey = typeKey;
+        }
+        public Measurement(string typeKey, double value) : this(typeKey)
+        {
+            Value = value;
         }
     }
 

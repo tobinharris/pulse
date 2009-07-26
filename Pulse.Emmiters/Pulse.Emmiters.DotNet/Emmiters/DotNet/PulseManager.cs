@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Text;
 using Newtonsoft.Json;
-using Pulse.Emmiters.DotNet.Core.ObservationTypes;
 using Pulse.Emmiters.DotNet.Core.Observers;
 using Pulse.Emmiters.DotNet.Domain;
 
@@ -13,14 +10,18 @@ namespace Pulse.Emmiters.DotNet
     {
         private static readonly Register RegisterInstance = new Register();
         private static string _apiKey = String.Empty;
+        private static ISimpleQueue _queue;
+
         internal static bool IsInitialized
         {
             get { return _apiKey != String.Empty;  }
         }
 
-        public static void Init(string apiKey)
+        public static void Init(string apiKey, ISimpleQueue queueImpl)
         {
             _apiKey = apiKey;
+            _queue = queueImpl;
+            RegisterType(new ObservationType("Common.Custom.TimedAction", "Time taken for a custom action to occur", "Custom Action Time", "ms"));
         }
 
         public static void Push(Observation observation, Observation glue)
@@ -30,32 +31,21 @@ namespace Pulse.Emmiters.DotNet
                 if (observation != null && IsInitialized)
                 {
                     observation.ApiKey = _apiKey;
-                    AddToQueue(JsonConvert.SerializeObject(observation));
+                    _queue.AddToQueue(JsonConvert.SerializeObject(observation));
                 }
             }
             catch
             {
             }
         }
-        private static void AddToQueue(string json)
-        {
-            var bytes = Encoding.ASCII.GetBytes(json);
-            using (var fw = File.Create(@"c:\temp\observations\observation_" + DateTime.Now.Ticks))
-            {
-                fw.Write(Encoding.ASCII.GetBytes(json), 0, bytes.Length);
-            }
-            using (var fw = File.AppendText(@"c:\temp\observations\rolling.txt"))
-            {
-                fw.Write(json + Environment.NewLine);
-            } 
-        }
 
-        public static void PushFor(string key, Observation glue)
+        public static void PushFor(string key, Observation glue, ObserverContext context)
         {
             if (RegisterInstance.For(key) == null) return;
             foreach (var observer in RegisterInstance.For(key))
             {
-                foreach (var observation in observer.GetObservations())
+                observer.Context = context;
+                foreach (var observation in observer.GetObservations(glue))
                 {
                     Push(observation, glue);
                 }
@@ -64,11 +54,12 @@ namespace Pulse.Emmiters.DotNet
 
         public static void RegisterType(ObservationType type)
         {
-            AddToQueue(JsonConvert.SerializeObject(type));
+            _queue.AddToQueue(JsonConvert.SerializeObject(type));
         }
 
         public static void Register(Observer observer, params string[] keys)
         {
+            observer.RegisterTypes();
             RegisterInstance.Add(observer, keys);
         }
 
@@ -79,13 +70,10 @@ namespace Pulse.Emmiters.DotNet
                 switch (defaultOb)
                 {
                     case DefaultObservation.WindowsCore:
-                        RegisterType(new CpuMeasurementType());
-                        RegisterType(new AvaliableRAMType());
-                        Register(new CpuObserver(), new[] { RegKeys.PER_MVC_ACTION_REQUEST});
-                        Register(new RamObserver(), new[] { RegKeys.PER_MVC_ACTION_REQUEST });
+                        Register(new SysObserver(), new[] { RegKeys.PER_MVC_ACTION_REQUEST});
                         break;
                     case DefaultObservation.MVC:
-                        RegisterType(new ControllerTimeType());
+                        RegisterType(new ObservationType("MVC.Controller.Time", "Time taken for a controller action to load", "Controller Time", "ms"));
                         break;
                 }
             }

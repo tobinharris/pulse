@@ -82,28 +82,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Emmiters\DotNet\Application\RegisteredAssemblies.cs" />
-    <Compile Include="Emmiters\DotNet\Core\Measurments\Database\OpenConnectionsMeasurment.cs" />
-    <Compile Include="Emmiters\DotNet\Core\Measurments\MVC\ControllerTimeMeasurement.cs" />
-    <Compile Include="Emmiters\DotNet\Core\Measurments\Windows\AvaliableRamMeasurment.cs" />
-    <Compile Include="Emmiters\DotNet\Core\Measurments\Windows\CPUMeasurement.cs" />
-    <Compile Include="Emmiters\DotNet\Core\ObservationTypes\AvaliableRAMType.cs" />
-    <Compile Include="Emmiters\DotNet\Core\ObservationTypes\ControllerTimeType.cs" />
-    <Compile Include="Emmiters\DotNet\Core\ObservationTypes\OpenConnectionsType.cs" />
-    <Compile Include="Emmiters\DotNet\Core\ObservationTypes\CpuMeasurementType.cs" />
-    <Compile Include="Emmiters\DotNet\Core\Observers\CPUObserver.cs" />
+    <Compile Include="Emmiters\DotNet\Core\CustomMeasurments\ControllerTimeMeasurement.cs" />
+    <Compile Include="Emmiters\DotNet\Core\CustomMeasurments\OpenConnectionsMeasurement.cs" />
+    <Compile Include="Emmiters\DotNet\Core\CustomMeasurments\TimedActionMeasurment.cs" />
+    <Compile Include="Emmiters\DotNet\Core\Observers\SysObserver.cs" />
     <Compile Include="Emmiters\DotNet\Core\Observers\NH\NHObserver.cs" />
-    <Compile Include="Emmiters\DotNet\Core\Observers\RamObserver.cs" />
     <Compile Include="Emmiters\DotNet\Core\Observers\SQLServer\OpenConnectionsObserver.cs" />
     <Compile Include="Emmiters\DotNet\DefaultObservation.cs" />
     <Compile Include="Emmiters\DotNet\Domain\Event.cs" />
     <Compile Include="Emmiters\DotNet\Domain\Exceptions\InvalidMeasurementException.cs" />
     <Compile Include="Emmiters\DotNet\Domain\Feature.cs" />
+    <Compile Include="Emmiters\DotNet\Domain\FileSystemQueue.cs" />
     <Compile Include="Emmiters\DotNet\Domain\Measurement.cs" />
     <Compile Include="Emmiters\DotNet\Domain\MVC\PulseAttribute.cs" />
     <Compile Include="Emmiters\DotNet\Domain\Node.cs" />
     <Compile Include="Emmiters\DotNet\Domain\Observation.cs" />
     <Compile Include="Emmiters\DotNet\Domain\Observations.cs" />
     <Compile Include="Emmiters\DotNet\Domain\Observer.cs" />
+    <Compile Include="Emmiters\DotNet\Domain\ObserverContext.cs" />
     <Compile Include="Emmiters\DotNet\Payload.cs" />
     <Compile Include="Emmiters\DotNet\PulseManager.cs" />
     <Compile Include="Emmiters\DotNet\Register.cs" />

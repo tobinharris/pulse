@@ -1,13 +1,12 @@
-﻿using System;
-using Newtonsoft.Json;
-using Pulse.Emmiters.DotNet.Core.ObservationTypes;
+﻿using Newtonsoft.Json;
 using Pulse.Emmiters.DotNet.Domain;
 
-namespace Pulse.Emmiters.DotNet.Core.Measurments.MVC
+namespace Pulse.Emmiters.DotNet.Core.CustomMeasurments
 {
     public sealed class ControllerTimeMeasurement : Measurement
     {
         public ControllerTimeMeasurement(string controllerAction, string controllerName, double value)
+            : base("MVC.Controller.Time", value)
         {
             ControllerAction = controllerAction;
             ControllerName = controllerName;
@@ -19,15 +18,5 @@ namespace Pulse.Emmiters.DotNet.Core.Measurments.MVC
 
         [JsonProperty]
         public string ControllerName { get; set; }
-
-        public override ObservationType Type
-        {
-            get { return new ControllerTimeType(); }
-        }
-
-        public override bool IsValid()
-        {
-            return !String.IsNullOrEmpty(ControllerAction) && !String.IsNullOrEmpty(ControllerName);
-        }
     }
 }

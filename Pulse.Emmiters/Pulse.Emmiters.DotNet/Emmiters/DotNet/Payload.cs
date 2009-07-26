@@ -21,7 +21,7 @@ namespace Pulse.Emmiters.DotNet
             foreach (var measurement in Observations.Measurements)
             {
                 payloadJSON.Add(JsonConvert.SerializeObject(measurement));
-            }
+            } 
             return payloadJSON;
         }
     }

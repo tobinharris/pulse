@@ -11,6 +11,11 @@ namespace Pulse.Emmiters.DotNet.Core.Observers.NH
             get { return RegisteredAssemblies.Assemblies.Exists(a => a.GetName().Name.ToLower().Contains("nhibernate")); }
         }
 
+        public override void RegisterTypes()
+        {
+            
+        }
+
         public override IList<Observation> GetObservations()
         {
             return null;

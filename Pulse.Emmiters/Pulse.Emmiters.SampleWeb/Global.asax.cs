@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Pulse.Emmiters.DotNet;
+using Pulse.Emmiters.DotNet.Domain;
 
 namespace Pulse.Emmiters.SampleWeb
 {
@@ -26,8 +27,9 @@ namespace Pulse.Emmiters.SampleWeb
 
         protected void Application_Start()
         {
+            PulseManager.Init("keyyy21312312312", new FileSystemQueue(@"c:\temp\observations\"));
             PulseManager.RegisterDefaults(DefaultObservation.WindowsCore, DefaultObservation.MVC);
-                PulseManager.Init("keyyy21312312312");
+            
             RegisterRoutes(RouteTable.Routes);
         }
     }

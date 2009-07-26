@@ -4,10 +4,15 @@ namespace Pulse.Emmiters.DotNet.Domain
 {
     public abstract class Observer
     {
+        public ObserverContext Context { get; set; }
+
+
         public virtual bool CanRegister
         {
             get { return true; }
         }
+
+        public abstract void RegisterTypes();
 
         public abstract IList<Observation> GetObservations();
 
