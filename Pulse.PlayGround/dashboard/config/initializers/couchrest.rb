@@ -1,0 +1,1 @@
+DB = CouchRest.database!("http://localhost:5984/pulse_mdl")     
