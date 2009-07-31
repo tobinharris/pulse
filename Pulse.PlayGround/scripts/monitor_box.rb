@@ -23,6 +23,7 @@ mysql = {:Identifier=>'mysql', :Name=>'MySQL Server', :Descriptor=>'', }
 db = MockDb.new
 db = CouchRest.database!("http://192.168.1.119:5984/pulse_mdl")
 
+
 pulse = Pulse.new('C2AH567BG90C', db)
 pulse.observes node
 pulse.observes mysql

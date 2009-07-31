@@ -18,6 +18,7 @@ module DashboardHelper
     def chart_data(args)
       data, max = args
       return nil if max == 0 || data.size == 0
+      #max value to show on chart should be a bit more than the max value passed in
       max += max * 0.2
       encode = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 
