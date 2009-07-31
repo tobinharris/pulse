@@ -26,7 +26,7 @@ class Pulse
     post(
     {
         :Value => val,  
-        :TypeIdentifier => type,   
+        :TypeKey => type,   
         'couchrest-type' => 'Observation',
         :ApiKey  => @api_key,
         :TargetNode  => node[:key],        
