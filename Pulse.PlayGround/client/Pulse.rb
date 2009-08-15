@@ -1,5 +1,5 @@
 require 'rubygems'
-require 'couchrest'
+require 'couchrest' 
 require 'json/pure'
 require '../client/mockdb'
 
