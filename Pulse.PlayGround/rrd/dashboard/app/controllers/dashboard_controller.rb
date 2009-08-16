@@ -7,13 +7,10 @@ class DashboardController < ApplicationController
     
     # Generate a new RRD. (This will just be skipped if there is already a RRD with that name)
     @received_packets_graph.create_rrd "--start #{@packets[0].created_at.to_i - 2} DS:packets:GAUGE:600:U:U RRA:AVERAGE:0.5:1:24 RRA:LAST:0.5:1:1200"
-
-    @packets.each do |p|                   
-      ok = @received_packets_graph.insert "#{p.created_at.to_f}:#{p.value.to_i}"
-    end if false
-
-    @graph_name = @received_packets_graph.get_name_of_graph           
     
+    @received_packets_graph.insert @packets.map {|p| "#{p.created_at.to_f}:#{p.value.to_i}" }.join(' ')
+
+    @graph_name = @received_packets_graph.get_name_of_graph               
 
     # Build some options for the graph image.
     yesterday = (1.day.ago).to_i
