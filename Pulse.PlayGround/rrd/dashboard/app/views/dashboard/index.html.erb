@@ -1,0 +1,8 @@
+<h1>Dashboard</h1>
+<p><%= show_graph @graph_name %><%= @graph_name	%></p>
+
+<ul>    
+	<% Measurement.find(:all, :order=>"created_at asc").each do |m|%>
+	<li><%= m.value %>, <%= m.created_at %></li>
+	<% end %>
+</ul>

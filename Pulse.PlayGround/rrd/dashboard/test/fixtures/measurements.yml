@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  instance_id: 
+  node_id: 
+  name: 
+  value: 
+
+two:
+  instance_id: 
+  node_id: 
+  name: 
+  value: 
