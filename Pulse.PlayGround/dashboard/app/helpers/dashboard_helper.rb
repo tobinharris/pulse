@@ -2,6 +2,8 @@ module DashboardHelper
 
   class Chart
     attr_accessor :name
+    attr_accessor :mean
+    attr_accessor :last
     attr_accessor :data
     attr_accessor :max
     attr_accessor :height
@@ -9,8 +11,10 @@ module DashboardHelper
 
     def initialize(name, data)
       self.name = name
-      self.data = data
+      self.data = data      
       self.max = data.collect{|i| i[1]}.max
+      self.mean = (data.collect{|i| i[1]}.sum / data.collect{|i| i[1]}.length).to_f.round(2)
+      self.last = data[data.length-1][1].to_f.round(3)
       self.height = 100
       self.width = 300
     end

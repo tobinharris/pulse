@@ -3,6 +3,9 @@ class Observation < CouchRest::ExtendedDocument
   view_by :RecordedAt, :descending=>true
   property :RecordedAt #, :cast_as=>['Date']
   property :Value
-  property :TypeKey
-    
+  property :TypeKey    
+end
+
+class ObservationType < CouchRest::ExtendedDocument
+  property :Units
 end

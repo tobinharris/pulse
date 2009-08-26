@@ -1,6 +1,8 @@
 class DashboardController < ApplicationController
+  layout 'default'
+  
   def index
-    @items =  Observation.by_RecordedAt     
+    @items =  Observation.by_RecordedAt   
     data = {}   
      
     #  build up for charts. 
@@ -8,13 +10,19 @@ class DashboardController < ApplicationController
     @items.each do |i| 
       data[i.TypeKey].nil? ? data[i.TypeKey] = [[i.RecordedAt, i.Value]] : data[i.TypeKey] << [i.RecordedAt, i.Value]
     end
+    
+    data.sort{|a,b| b <=> a }
 
     # use data to build charts
-    @charts = []
+    @charts = {}
     data.keys.each do |key|
       c = DashboardHelper::Chart.new(key, data[key])
-      @charts << c
+      @charts[key] = c
     end
   end  
+  
+  def preload_observation_types
+    types = {}
+  end
 end
 

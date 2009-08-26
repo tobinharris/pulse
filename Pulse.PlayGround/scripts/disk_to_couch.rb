@@ -4,7 +4,8 @@ require 'json/pure'
 require 'fileutils'
 
 folder = "/Users/Tobin/Sandbox/pulse/Pulse.PlayGround/test_data/"
-db = CouchRest.database!("http://127.0.0.1:5984/pulse_mdl")
+#db = CouchRest.database!("http://127.0.0.1:5984/pulse_mdl")
+db = MongoDb.new( XGen::Mongo::Driver::Mongo.new.db("pulse_mdl") )
 for_a_minute = 1
 
 return if not File.exist?(folder)
