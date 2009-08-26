@@ -3,7 +3,7 @@ require 'json/pure'
 require 'fileutils'
 require '../client/MongoDb'
 
-folder = "C:\\temp\\sample_observations"
+folder = "C:\\temp\\mdl"
 
 db = MongoDb.new( Connection.new.db('pulse_mdl') )
 for_a_minute = 1
