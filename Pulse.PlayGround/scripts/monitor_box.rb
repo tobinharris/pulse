@@ -5,6 +5,8 @@ require 'sys/cpu'
 require 'sys/filesystem'
 include Sys
 require 'mysql'
+require 'mongo'
+include Mongo
 
 def disk_used_space( path )
   `df -P #{path} |grep ^/ | awk '{print $3;}'`.
@@ -23,7 +25,7 @@ mysql = {:Identifier=>'mysql', :Name=>'MySQL Server', :Descriptor=>'', }
 # Set up Pulse
 db = MockDb.new
 #db = CouchRest.database!("http://192.168.1.119:5984/pulse_mdl")
-db = MongoDb.new( XGen::Mongo::Driver::Mongo.new.db("pulse_mdl") )
+db = MongoDb.new( Connection.new.db('pulse_mdl') )
 
 
 

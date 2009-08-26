@@ -1,11 +1,12 @@
 require 'rubygems'
-require 'couchrest'
 require 'json/pure'
 require 'fileutils'
+require 'mongo'
+include Mongo
 
 folder = "/Users/Tobin/Sandbox/pulse/Pulse.PlayGround/test_data/"
-#db = CouchRest.database!("http://127.0.0.1:5984/pulse_mdl")
-db = MongoDb.new( XGen::Mongo::Driver::Mongo.new.db("pulse_mdl") )
+
+db = MongoDb.new( Connection.new.db('pulse_mdl') )
 for_a_minute = 1
 
 return if not File.exist?(folder)

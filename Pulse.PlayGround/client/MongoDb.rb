@@ -3,7 +3,7 @@ require 'mongo'
 
 class MongoDb   
   def initialize(mongodb=nil)
-    @db = mongodb #|| XGen::Mongo::Driver::Mongo.new("localhost").db("mdl_pulse") 
+    @db = mongodb 
     @measurements = @db.collection("measurements")
   end
   
