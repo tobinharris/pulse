@@ -2,16 +2,19 @@ class DashboardController < ApplicationController
   layout 'default'
   
   def index
-    @items =  Observation.by_RecordedAt   
+    @pulse_db = Connection.new.db('pulse_mdl')
+    @items= @pulse_db.collection("measurements").find();
+    
+    
     data = {}   
-     
+    
     #  build up for charts. 
     # Create hash of data a bit like this "mysql.connections"=>[ ['2009-09-01 05:34:01',78], ['2009-09-01 05:44:01',87] ]
     @items.each do |i| 
-      data[i.TypeKey].nil? ? data[i.TypeKey] = [[i.RecordedAt, i.Value]] : data[i.TypeKey] << [i.RecordedAt, i.Value]
+      data[i["TypeKey"]].nil? ? data[i["TypeKey"]] = [[i["RecordedAt"], i["Value"]]] : data[i["TypeKey"]] << [i["RecordedAt"], i["Value"]]
     end
     
-    data.sort{|a,b| b <=> a }
+    #data.sort{|a,b| b <=> a unless (a.nil? or b.nil?) }
 
     # use data to build charts
     @charts = {}
