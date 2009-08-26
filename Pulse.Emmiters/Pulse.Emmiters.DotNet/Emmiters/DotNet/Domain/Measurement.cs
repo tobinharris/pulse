@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-
-namespace Pulse.Emmiters.DotNet.Domain
+﻿namespace Pulse.Emmiters.DotNet.Domain
 {
     public class Measurement : Observation<double>
     {

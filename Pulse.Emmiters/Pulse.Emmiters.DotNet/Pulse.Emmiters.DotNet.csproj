@@ -98,6 +98,7 @@
     <Compile Include="Emmiters\DotNet\Domain\Node.cs" />
     <Compile Include="Emmiters\DotNet\Domain\Observation.cs" />
     <Compile Include="Emmiters\DotNet\Domain\Observations.cs" />
+    <Compile Include="Emmiters\DotNet\Domain\ObservationType.cs" />
     <Compile Include="Emmiters\DotNet\Domain\Observer.cs" />
     <Compile Include="Emmiters\DotNet\Domain\ObserverContext.cs" />
     <Compile Include="Emmiters\DotNet\Payload.cs" />
