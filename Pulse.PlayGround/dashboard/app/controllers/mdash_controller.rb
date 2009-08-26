@@ -3,9 +3,8 @@ include Mongo
   
   
 class MdashController < ApplicationController
-  def index 
-      db = Connection.new.db('pulse_mdl')
-      #db = XGen::Mongo::Driver::Mongo.new.db("pulse_mdl")
-      #@measurments  = db.collection("measurements").find();
+  def index       
+      @pulse_db = Connection.new.db('pulse_mdl')
+      @measurments  = @pulse_db.collection("measurements").find();
   end  
 end
