@@ -1,10 +1,9 @@
 require 'rubygems'
 require 'json/pure'
 require 'fileutils'
-require 'mongo'
-include Mongo
+require '../client/MongoDb'
 
-folder = "/Users/Tobin/Sandbox/pulse/Pulse.PlayGround/test_data/"
+folder = "C:\\temp\\sample_observations"
 
 db = MongoDb.new( Connection.new.db('pulse_mdl') )
 for_a_minute = 1

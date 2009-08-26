@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'mongo'
+include Mongo
 
 class MongoDb   
   def initialize(mongodb=nil)
