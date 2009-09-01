@@ -1,0 +1,6 @@
+<h1>Dashboard</h1>
+<ul>
+<% @measurments.each do |m| %> 
+	<li><%= m["TypeKey"] %> <b><%= m["Value"] %></b></li>
+<% end %>
+</ul>

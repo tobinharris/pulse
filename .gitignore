@@ -13,3 +13,4 @@ Pulse.PlayGround/test_data/
 *.pidb
 *.userprefs
 *.log
+*.tmp_*

@@ -81,30 +81,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Emmiters\DotNet\Application\RegisteredAssemblies.cs" />
-    <Compile Include="Emmiters\DotNet\Core\CustomMeasurments\ControllerTimeMeasurement.cs" />
-    <Compile Include="Emmiters\DotNet\Core\CustomMeasurments\OpenConnectionsMeasurement.cs" />
-    <Compile Include="Emmiters\DotNet\Core\CustomMeasurments\TimedActionMeasurment.cs" />
-    <Compile Include="Emmiters\DotNet\Core\Observers\SysObserver.cs" />
-    <Compile Include="Emmiters\DotNet\Core\Observers\NH\NHObserver.cs" />
-    <Compile Include="Emmiters\DotNet\Core\Observers\SQLServer\OpenConnectionsObserver.cs" />
-    <Compile Include="Emmiters\DotNet\DefaultObservation.cs" />
-    <Compile Include="Emmiters\DotNet\Domain\Event.cs" />
-    <Compile Include="Emmiters\DotNet\Domain\Exceptions\InvalidMeasurementException.cs" />
-    <Compile Include="Emmiters\DotNet\Domain\Feature.cs" />
-    <Compile Include="Emmiters\DotNet\Domain\FileSystemQueue.cs" />
-    <Compile Include="Emmiters\DotNet\Domain\Measurement.cs" />
-    <Compile Include="Emmiters\DotNet\Domain\MVC\PulseAttribute.cs" />
-    <Compile Include="Emmiters\DotNet\Domain\Node.cs" />
-    <Compile Include="Emmiters\DotNet\Domain\Observation.cs" />
-    <Compile Include="Emmiters\DotNet\Domain\Observations.cs" />
-    <Compile Include="Emmiters\DotNet\Domain\ObservationType.cs" />
-    <Compile Include="Emmiters\DotNet\Domain\Observer.cs" />
-    <Compile Include="Emmiters\DotNet\Domain\ObserverContext.cs" />
-    <Compile Include="Emmiters\DotNet\Payload.cs" />
-    <Compile Include="Emmiters\DotNet\PulseManager.cs" />
-    <Compile Include="Emmiters\DotNet\Register.cs" />
-    <Compile Include="Emmiters\DotNet\RegKeys.cs" />
+    <Compile Include="Domain\Queue\ISimpleQueue.cs" />
+    <Compile Include="Observers\Common\Measurments\HeartbeatMeasurment.cs" />
+    <Compile Include="Observers\Common\Measurments\TimedActionMeasurment.cs" />
+    <Compile Include="Observers\MvcObserver.cs" />
+    <Compile Include="Observers\SysObserver.cs" />
+    <Compile Include="Observers\NH\NHObserver.cs" />
+    <Compile Include="Observers\SQLServer\OpenConnectionsObserver.cs" />
+    <Compile Include="DefaultObservation.cs" />
+    <Compile Include="Domain\Event.cs" />
+    <Compile Include="Domain\Exceptions\InvalidMeasurementException.cs" />
+    <Compile Include="Domain\Feature.cs" />
+    <Compile Include="Domain\Queue\FileSystemQueue.cs" />
+    <Compile Include="Domain\Measurement.cs" />
+    <Compile Include="Observers\MVC\PulseAttribute.cs" />
+    <Compile Include="Domain\Node.cs" />
+    <Compile Include="Domain\Observation.cs" />
+    <Compile Include="Domain\ObservationType.cs" />
+    <Compile Include="Domain\Observer.cs" />
+    <Compile Include="Domain\ObserverContext.cs" />
+    <Compile Include="PulseManager.cs" />
+    <Compile Include="Register.cs" />
+    <Compile Include="RegKeys.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

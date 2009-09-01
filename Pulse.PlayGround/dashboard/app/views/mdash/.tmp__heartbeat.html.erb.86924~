@@ -2,8 +2,8 @@
 
 
 <h2>Heartbeats</h2>
-<% @heartbeats.each do |h| %>
-	<%= render :partial =>'heartbeat', :locals => { :heartbeat => h}%>
+<% @heartbeat.each do |h| %>
+	
 <% end %>
 <ul>
 <% @measurments.each do |m| %> 
