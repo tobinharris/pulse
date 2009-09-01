@@ -2,7 +2,7 @@ class DashboardController < ApplicationController
   layout 'default'
   
   def index
-    @pulse_db = Connection.new.db('pulse_mdl')
+    @pulse_db = Connection.new('www.socena.com').db('pulse_mdl')
     @items= @pulse_db.collection("measurements").find();
     
     
