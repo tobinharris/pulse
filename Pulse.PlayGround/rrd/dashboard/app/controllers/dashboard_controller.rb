@@ -1,9 +1,10 @@
 require 'mongo'
 include Mongo 
 class DashboardController < ApplicationController
-
-  def index    
-    graph_name = params[:id].gsub('_','.')        
+  
+# e.g. /dashboard/index/MVC_Controller_Time    
+  def index                 
+    graph_name = params[:id].nil? ? "MVC.Controller.Time" : params[:id].gsub('_','.')        
      
     # Create a new graph object.
     @received_packets_graph = RRDGraph.new(graph_name)
