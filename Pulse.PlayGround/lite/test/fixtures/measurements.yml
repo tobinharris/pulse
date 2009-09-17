@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  key: MyString
+  value: 1.5
+
+two:
+  key: MyString
+  value: 1.5
