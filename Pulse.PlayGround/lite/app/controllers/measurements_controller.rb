@@ -81,5 +81,28 @@ class MeasurementsController < ApplicationController
       format.html { redirect_to(measurements_url) }
       format.xml  { head :ok }
     end
+  end  
+
+  require 'gruff'
+  def report     
+    # hash.to_s.gsub('-','').to_i.to_s(16)
+    
+    
+    found = Measurement.find_by_sql("select m.key, m.value, m.created_at from Measurements m order by m.created_at desc")
+    vals = found.map {|v| v.value }
+    times={}
+    
+    hash = found[0].key.hash.to_s.gsub('-','').to_i.to_s(16)
+    g = Gruff::Line.new
+
+    g.theme_greyscale
+    g.title = found[0].key
+    g.data(found[0].key, vals)
+    i = 0
+    found.each{ |v| times[i] = v.created_at.strftime('%M'); i+=1 }
+    g.labels = times
+    file ="#{RAILS_ROOT}/public/images/#{hash}.png"
+    g.write(file)     
+    render :text=>"<img src='/images/#{hash}.png' />"
   end
 end
